@@ -1,1 +1,5 @@
-These should be under home/.config
+Linux:
+  These should be under home/.config
+
+Windows:
+  
