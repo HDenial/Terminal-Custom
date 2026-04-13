@@ -1,3 +1,3 @@
-zsh
-oh-my-zsh
-powerlevel10k
+- zsh
+- oh-my-zsh
+- powerlevel10k
