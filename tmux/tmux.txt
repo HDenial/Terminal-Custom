@@ -1,0 +1,88 @@
+🧠 Prefix Key
+
+Prefix = Ctrl + a
+(instead of the default Ctrl + B)
+
+This means every tmux command starts with:
+
+Ctrl + a, then another key
+
+🔲 Window Management
+Action	Keys	Notes
+New window	Ctrl + a, then c	
+Next window	Ctrl + a, then n	
+Previous window	Ctrl + a, then p	
+Rename window	Ctrl + a, then ,	
+Kill Split	Ctrl + a, then x; or exit	
+Kill Window     Ctrl + a, then w; or exit all Splits     
+Move between windows	Ctrl + a, then a number (e.g. 1, 2, 3)	Jump directly 
+Move between instances  Ctrl + a, then s 
+Split horiz     Ctrl + a, then e
+Split verti     Ctrl + a, then q
+
+Reload config   Ctrl + a, then r
+Return to CLI   
+ 
+
+🪟Session Management (on CLI; defined on bashrc)
+
+tmux                    - Creates new tmux session
+tmux ret                - Returns to previous tmux instance
+tmux ls                 - Lists active instances and their ids
+tmux [ID]               - Start given tmux instance
+tmux kill [ID]          - Kills given tmux instance
+tmux end                - Kills all tmux instances
+
+
+
+
+
+
+
+
+---backup_bash----
+---insert in CLI---
+
+last_tmux=""
+
+tmux() {
+    # Create a new session (bare 'tmux' or 'tmux new')
+    if [[ -z "$1" || "$1" == "new" ]]; then
+        # Start a detached session first to capture its name
+        local SESSION_NAME
+        tmux new-session -d
+        # Get the most recently created session (highest numeric ID)
+        SESSION_NAME=$(tmux ls 2>/dev/null | awk -F: '{print $1}' | sort -n | tail -n1)
+        last_tmux="$SESSION_NAME"
+        tmux attach -t "$SESSION_NAME"
+
+  #elif [[ "$1" == "named" ]]; then
+    #command tmux new -s ""
+
+
+    # attach to last used tmux instance
+  elif [[ "$1" == "ret" ]]; then
+    if [[ -n "$last_tmux" ]] && tmux ls 2>/dev/null | awk -F: '{print $1}' | grep -qx "$last_tmux"; then
+            tmux attach -t "$last_tmux"
+        else
+                echo "There is no Last session to attach"
+    fi
+    # attach given id/name if it matches one
+  elif command tmux ls 2>/dev/null | awk -F: '{print $1}' | grep -qx "$1";
+        then command tmux attach -t "$1"
+
+    # kill all sessions
+  elif [[ "$1" == "end" ]]; then
+    command tmux kill-server
+
+   # kill specific session
+  elif [[ "$1" == "kill" && -n "$2" ]]; then
+    command tmux kill-session -t "$2"
+
+    # if $1 doesnt match anything pass it on to original tmux
+  else
+    command tmux "$@"
+  fi
+}
+        
+
