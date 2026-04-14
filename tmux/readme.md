@@ -1,1 +1,2 @@
-
+- txt is a usage manual for configs, also includes additions to CLI commands for ease of use
+- conf is a dot file. ~/.tmux.conf
