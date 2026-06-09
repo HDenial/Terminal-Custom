@@ -43,6 +43,8 @@ tmux end                - Kills all tmux instances
 ---backup_bash----
 ---insert in CLI---
 
+#------------------ tmux QOL -----------------------
+
 last_tmux=""
 
 tmux() {
@@ -84,5 +86,4 @@ tmux() {
     command tmux "$@"
   fi
 }
-        
-
+#-------------------------------- END ----------------------------
