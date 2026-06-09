@@ -21,7 +21,7 @@ Split horiz     Ctrl + a, then e
 Split verti     Ctrl + a, then q
 
 Reload config   Ctrl + a, then r
-Return to CLI   
+Return to CLI   Ctrl + a, then d
  
 
 🪟Session Management (on CLI; defined on bashrc)
