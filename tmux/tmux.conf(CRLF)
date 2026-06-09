@@ -85,7 +85,7 @@ set -g focus-events on
 setw -g automatic-rename on
 
 # Allow faster command repeats
-set -s repeat-time 500
+set -g repeat-time 500
 
 # Enable true color (if your terminal supports it)
 set -g terminal-overrides ',xterm-256color:Tc'
