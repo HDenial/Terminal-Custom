@@ -1,1 +1,55 @@
-
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "file",
+    "source": "/home/HugoF/.config/neofetch/Viper"
+  },
+  "display": {
+    "separator": ": "
+  },
+  "modules": [
+    "title",
+    "separator",
+    {
+      "type": "os",
+      "format": "{3} {12}" // Shows full distro name + architecture
+    },
+    "host",
+    {
+      "type": "kernel",
+      "format": "{2}" // Shortened kernel version (e.g., 6.8.0-38-generic)
+    },
+    {
+      "type": "uptime",
+      "format": "{1} days, {2} hours, {3} mins"
+    },
+    "packages",
+    {
+      "type": "shell",
+      "format": "{1} {4}" // Shell name + version without path
+    },
+    "display",
+    "de",
+    "wm",
+    "wmtheme",
+    "theme",
+    "icons",
+    "terminal",
+    "terminalfont",
+    {
+      "type": "cpu",
+      "showPeCoreCount": true,
+      "format": "{1} ({4}) @ {7}GHz" // CPU brand, logical cores, and speed
+    },
+    {
+      "type": "gpu",
+      "hideType": "none" // Displays all GPUs (integrated and dedicated)
+    },
+    {
+      "type": "memory",
+      "format": "{1} / {2}" // Shows memory in MiB without percentages
+    },
+    "break",
+    "colors"
+  ]
+}
