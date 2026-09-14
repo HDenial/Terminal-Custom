@@ -2,22 +2,34 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "type": "file",
-    "source": "/home/HugoF/.config/neofetch/Viper"
+    "source": "/home/HugoF/.config/fastfetch/Viper1"
   },
   "display": {
-    "separator": ": "
+    "separator": ": ",
+    "color": {
+      "keys": "red",
+      "title": "red"
+    },
+    "percent": {
+      "type": 3,
+      "color": {
+        "green": "green",
+        "yellow": "yellow",
+        "red": "red"
+      }
+    }
   },
   "modules": [
     "title",
     "separator",
     {
       "type": "os",
-      "format": "{3} {12}" // Shows full distro name + architecture
+      "format": "{3} {12}"
     },
     "host",
     {
       "type": "kernel",
-      "format": "{2}" // Shortened kernel version (e.g., 6.8.0-38-generic)
+      "format": "{2}"
     },
     {
       "type": "uptime",
@@ -26,7 +38,7 @@
     "packages",
     {
       "type": "shell",
-      "format": "{1} {4}" // Shell name + version without path
+      "format": "{1} {4}"
     },
     "display",
     "de",
@@ -39,15 +51,29 @@
     {
       "type": "cpu",
       "showPeCoreCount": true,
-      "format": "{1} ({4}) @ {7}GHz" // CPU brand, logical cores, and speed
+      "format": "{1} ({4}) @ {7}GHz"
     },
     {
       "type": "gpu",
-      "hideType": "none" // Displays all GPUs (integrated and dedicated)
+      "driverSpecific": true,
+      "format": "{1} {2}"
     },
     {
       "type": "memory",
-      "format": "{1} / {2}" // Shows memory in MiB without percentages
+      "format": "{1} / {2} ({3})"
+    },
+    {
+      "type": "swap",
+      "format": "{1} / {2} ({3})"
+    },
+    {
+      "type": "disk",
+      "format": "{1} / {2} ({3})"
+    },
+    {
+      "type": "localip",
+      "showIpv6": false,
+      "showLoop": false
     },
     "break",
     "colors"
