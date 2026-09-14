@@ -1,0 +1,11 @@
+[opener]
+edit = [
+    { run = 'micro "%s"', block = true, for = "unix" },
+    { run = 'micro "%s"', block = true, for = "windows" }
+]
+
+[open]
+rules = [
+    { mime = "text/*", use = "edit" },
+    { url = "*", use = "edit" }
+]
