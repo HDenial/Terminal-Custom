@@ -2,8 +2,8 @@
 - zsh [CLI]
 - oh-my-zsh [front for CLI skin]
 - powerlevel10k [CLI skin]
-- neofetch [cool system infor display]
-- tmux [terminal spliter]
+- fastfetch [cool system info display]
+- tmux [terminal splitter]
 - neovim [ultra-text editor]
 - micro [simple text editor]
 
