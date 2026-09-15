@@ -12,7 +12,6 @@ Insert files under correct folders
 https://kavigihan.medium.com/efficient-terminal-setup-with-alacritty-and-tmux-65a321091434
 
 # To-Be-Done:
-- Migrate to fastfetch?
 - Nchad (stats)
 - btop (stats)
 - yazi (file management on terminal)
