@@ -11,6 +11,105 @@
       "title": "red"
     },
     "percent": {
+        "type": 9,         // 1=number, 2=bar, 3=both, 9=colored number
+        "color": {
+            "green": "green",
+            "yellow": "light_yellow",
+            "red": "light_red"
+        }
+    }
+  },
+  "modules": [
+    "title",
+    "separator",
+    {
+      "type": "os",
+      "format": "{3} {12}"
+    },
+    "host",
+    {
+      "type": "kernel",
+      "format": "{2}"
+    },
+    {
+      "type": "uptime",
+      "format": "{1} days, {2} hours, {3} mins"
+    },
+    "packages",
+    {
+      "type": "shell",
+      "format": "{1} {4}"
+    },
+    "display",
+    "de",
+    "wm",
+    "wmtheme",
+    "theme",
+    "icons",
+    "terminal",
+    "terminalfont",
+    {
+      "type": "cpu",
+      "showPeCoreCount": true,
+      "format": "{1} ({4}) @ {7}GHz"
+    },
+    {
+      "type": "gpu",
+      "driverSpecific": true,
+      "format": "{1} {2}"
+    },
+    {
+      "type": "memory",
+      "key": "Memory",
+      "format": "{1} / {2} ({3})",
+      "percent": {
+            "type": 0,     // Show both percentage number and bar
+            "green": 51,   // Values below 30% in green
+            "yellow": 75   // 30-70% in yellow, >70% in red
+        }
+    },
+    {
+      "type": "swap",
+      "format": "{1} / {2} ({3})",
+      "percent": {
+            "type": 0,     // Show both percentage number and bar
+            "green": 51,   // Values below 30% in green
+            "yellow": 75   // 30-70% in yellow, >70% in red
+        }
+    },
+    {
+      "type": "disk",
+      "format": "{1} / {2} ({3})",
+      "percent": {
+            "type": 0,     // Show both percentage number and bar
+            "green": 51,   // Values below 30% in green
+            "yellow": 75   // 30-70% in yellow, >70% in red
+        }
+    },
+    {
+      "type": "localip",
+      "showIpv6": false,
+      "showLoop": false
+    },
+    "break",
+    "colors"
+  ]
+}
+
+
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "file",
+    "source": "/home/HugoF/.config/fastfetch/Viper1"
+  },
+  "display": {
+    "separator": ": ",
+    "color": {
+      "keys": "red",
+      "title": "red"
+    },
+    "percent": {
       "type": 3,
       "color": {
         "green": "green",
