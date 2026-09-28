@@ -1,0 +1,121 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "final_space": true,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:gray",
+          "template": "╭─ "
+        },
+        {
+          "type": "os",
+          "style": "plain",
+          "foreground": "p:white",
+          "template": "{{ .Icon }} "
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#d70000",
+          "properties": {
+            "style": "full",
+            "folder_separator_template": "/"
+          },
+          "template": "{{ .Path }} "
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "#5fbf00",
+          "foreground_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#dfaf00{{ end }}",
+            "{{ if gt .Ahead 0 }}#00aaff{{ end }}"
+          ],
+          "properties": {
+            "branch_icon": " ",
+            "fetch_status": true
+          },
+          "template": "{{ .HEAD }}{{ if .Working.Changed }} !{{ .Working.String }}{{ end }}{{ if .Staging.Changed }} +{{ .Staging.String }}{{ end }}{{ if gt .Ahead 0 }} ⇡{{ .Ahead }}{{ end }}{{ if gt .Behind 0 }} ⇣{{ .Behind }}{{ end }} "
+        }
+      ]
+    },
+    {
+      "type": "filler",
+      "filler": "·",
+      "foreground": "p:gray"
+    },
+    {
+      "type": "rprompt",
+      "overflow": "hidden",
+      "segments": [
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "#87875f",
+          "properties": {
+            "threshold": 3000,
+            "style": "round"
+          },
+          "template": "took {{ .FormattedMs }} "
+        },
+        {
+          "type": "time",
+          "style": "plain",
+          "foreground": "p:gray",
+          "properties": {
+            "time_format": "15:04:05"
+          },
+          "template": "at {{ .CurrentDate | date .Format }} "
+        },
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": "#5fbf00",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#af0000{{ end }}"
+          ],
+          "properties": {
+            "always_enabled": true
+          },
+          "template": "{{ if gt .Code 0 }}✘ {{ .Code }}{{ else }}✔{{ end }}"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:gray",
+          "template": "╰─ "
+        },
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": "#5fbf00",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#af0000{{ end }}"
+          ],
+          "properties": {
+            "always_enabled": true
+          },
+          "template": "❯"
+        }
+      ]
+    }
+  ],
+  "palette": {
+    "gray": "#585858",
+    "white": "#ffffff"
+  }
+}
